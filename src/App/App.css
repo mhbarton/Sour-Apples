@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+nav {
+  background-color: #131010;
+}
+
+.nav-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 48px;
+    font-family: 'Limelight', cursive;
+    color: limegreen;
+    margin: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

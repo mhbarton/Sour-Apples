@@ -1,0 +1,38 @@
+.card {
+    border-radius: 3%;
+    width: 200px;
+    height: 450px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px grey;
+    position: relative;
+    background-color: rgb(246, 249, 249);
+
+}
+.card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 3% 3% 0 0;
+    /* margin: 0 0 10px 0; */
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+h2 {
+    font-family: 'Limelight', cursive;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
