@@ -3,12 +3,18 @@ import React from 'react'
 // import Card from '../Card/Card'
 import './SingleMovie.css'
 
-const SingleMovie = ({title, tagline,}) => {
-
-
+const SingleMovie = ({ movies }) => {
+  const {title, backdrop_path, poster_path, release_date, average_rating} = movies
     return (
         <div>
-          <h1> jello </h1>
+          <img src={backdrop_path} alt="movie background"/>
+          <img src={poster_path} alt="movie poster with title and details for show times"/>
+          <h1>{title}</h1>
+          <h2>Some tagline</h2>
+          <p>Genre</p>
+          <p>{`Release date:  ${release_date}`}</p>
+          <p>{`🍏 Sour Apples Rating:  ${average_rating.toFixed(0)} / 10 `}</p>
+          <p>"Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!"</p> 
         </div>
     )
 }
