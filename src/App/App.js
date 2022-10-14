@@ -36,7 +36,7 @@ class App extends Component {
           <main className="App">
             {this.state.movies.length > 1 ?
             <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> :
-            <SingleMovie movies={this.state.movies}/>}
+            <SingleMovie movies={this.state.movies} goHome={this.goHome}/>}
           </main>
         </div>
       )

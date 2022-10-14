@@ -3,7 +3,7 @@ import React from 'react'
 import Card from '../Card/Card'
 import './Movies.css'
 
-const Movies = ({ movies, showSingleMovie }) => {
+const Movies = ({ movies, showSingleMovie}) => {
 
     const movieData = movies.map(movie => {
         return (
