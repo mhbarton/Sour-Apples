@@ -3,7 +3,7 @@ import React from 'react'
 import Card from '../Card/Card'
 import './Movies.css'
 
-const Movies = ({ movies, showSingleMovie}) => {
+const Movies = ({ movies, showSingleMovie, goHome}) => {
 
     const movieData = movies.map(movie => {
         return (
@@ -15,6 +15,7 @@ const Movies = ({ movies, showSingleMovie}) => {
                 id={movie.id}
                 key={movie.id}
                 showSingleMovie={showSingleMovie}
+                goHome={goHome}
             />
         )
     })

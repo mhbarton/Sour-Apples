@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import './App.css';
 import movieData from '../movieData.js';
+import home from "../images/home.png"
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
 
@@ -14,7 +15,6 @@ class App extends Component {
     }
 
     showSingleMovie = (id) => {
-      console.log(this.state.movies)
       const currentMovie = this.state.movies.find(movie => movie.id === id)
       this.setState({
         movies: currentMovie
@@ -22,9 +22,9 @@ class App extends Component {
     }
 
     goHome = () => {
-      this.setState({
-        movies: movieData.movies
-      })
+    this.setState({
+      movies: movieData.movies
+    })
     }
 
     render() {
@@ -34,9 +34,9 @@ class App extends Component {
             <h1 className="nav-title">Sour Apples</h1>
           </nav>
           <main className="App">
-            {this.state.movies.length > 1 ?
-            <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> :
-            <SingleMovie movies={this.state.movies} goHome={this.goHome}/>}
+            {this.state.movies.length > 1
+            ? <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
+            : <SingleMovie movies={this.state.movies} goHome={this.goHome} />}
           </main>
         </div>
       )
