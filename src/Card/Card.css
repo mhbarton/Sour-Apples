@@ -1,7 +1,7 @@
 .card {
     border-radius: 3%;
-    width: 200px;
-    height: 450px;
+    width: 225px;
+    height: 470px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     position: relative;
     background-color: rgb(246, 249, 249);
     overflow: auto;
+    align-items: center;
 }
 .card:hover {
     transform: scale(1.05);
@@ -16,8 +17,8 @@
 }
 
 .main-view-poster {
-    width: 200px;
-    height: 300px;
+    width: 225px;
+    height: 330px;
     object-fit: cover;
     border-radius: 3% 3% 0 0;
     /* margin: 0 0 10px 0; */
@@ -32,7 +33,12 @@ h2 {
     font-family: 'Limelight', cursive;
 }
 
-p {
+.card-details {
+    font-size: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-family: 'Merriweather', serif;
+    position: absolute;
+    bottom: 0;
+    display: flex;
 }

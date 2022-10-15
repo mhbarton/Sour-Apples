@@ -7,6 +7,10 @@ h2 {
     font-family: 'Limelight', cursive;
 }
 
+p {
+    font-weight: 600;
+}
+
 .home-icon {
   height: 50px;
   width: 50px;
@@ -16,7 +20,7 @@ h2 {
 .backdrop {
   height: 100vh;
   width: 100vw;
-  opacity: 0.5;
+  opacity: 0.45;
   position: relative;
   object-fit: cover;
 }
@@ -38,12 +42,14 @@ article {
   position: absolute;
   left: 0;
   bottom: 0;
+  align-items: center;
 }
 
 .movie-details {
   display: flex;
   flex-direction: column;
-  padding: 0 100px 0 100px;
+  align-items: flex-start;
+  margin-left: 50px;
 }
 
 .tagline {
@@ -52,8 +58,18 @@ article {
 
 .details {
   font-size: 20px;
+  font-family: 'Merriweather', serif;
+  text-align: start;
 }
 
+.minor-details {
+    display: flex;
+    justify-content: center;
+}
+
+.divider {
+    font-size: 20px;
+}
 @media screen and (min-width: 320px) and (max-width: 740px) {
   article {
     display: flex;

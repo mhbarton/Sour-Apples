@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import './App.css';
-import movieData from '../movieData.js';
-import home from "../images/home.png"
+// import movieData from '../movieData.js';
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
 
@@ -10,20 +9,48 @@ class App extends Component {
     constructor() {
       super()
       this.state = {
-        movies: movieData.movies
+        movies: [],
+        singleMovie: null, 
+        error: ''
       }
+    }
+
+    fetchData = () => {
+      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Not a 200 status');
+        }
+        console.log('getting my data')
+        return response.json()
+      })
+      .then(data => this.setState({movies: data.movies}))
+      .catch(error => this.setState({error: error}))
     }
 
     showSingleMovie = (id) => {
       const currentMovie = this.state.movies.find(movie => movie.id === id)
-      this.setState({
-        movies: currentMovie
-      })
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Not a 200 status');
+        }
+        console.log('getting my data')
+        return response.json()
+    })   
+      .then(data => this.setState({singleMovie: data.movie}))
+      .catch(error => this.setState({error: error}))
+     
+    }
+
+    componentDidMount() {
+      this.fetchData()
+  
     }
 
     goHome = () => {
     this.setState({
-      movies: movieData.movies
+      singleMovie: null
     })
     }
 
@@ -34,9 +61,10 @@ class App extends Component {
             <h1 className="nav-title">Sour Apples</h1>
           </nav>
           <main className="App">
-            {this.state.movies.length > 1
-            ? <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
-            : <SingleMovie movies={this.state.movies} goHome={this.goHome} />}
+            {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
+            {this.state.singleMovie
+            ? <SingleMovie singleMovie={this.state.singleMovie} goHome={this.goHome} />
+            : <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />}
           </main>
         </div>
       )

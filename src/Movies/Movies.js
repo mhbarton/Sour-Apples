@@ -1,5 +1,4 @@
 import React from 'react'
-// import movieData from '../movieData.js'
 import Card from '../Card/Card'
 import './Movies.css'
 
