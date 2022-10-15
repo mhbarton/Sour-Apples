@@ -1,7 +1,7 @@
 .card {
     border-radius: 3%;
     width: 225px;
-    height: 450px;
+    height: 470px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
 
 .main-view-poster {
     width: 225px;
-    height: 300px;
+    height: 330px;
     object-fit: cover;
     border-radius: 3% 3% 0 0;
     /* margin: 0 0 10px 0; */

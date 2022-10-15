@@ -23,6 +23,12 @@ nav {
   pointer-events: none;
 }
 
+h3 { 
+  font-family: 'Limelight', cursive;
+  color: red;
+  font-size: 28px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

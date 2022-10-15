@@ -10,23 +10,36 @@ class App extends Component {
       super()
       this.state = {
         movies: [],
-        singleMovie: null
+        singleMovie: null, 
+        error: ''
       }
     }
 
     fetchData = () => {
       fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Not a 200 status');
+        }
+        console.log('getting my data')
+        return response.json()
+      })
       .then(data => this.setState({movies: data.movies}))
-      .catch(error => console.log(error, 'An error has occurred'))
+      .catch(error => this.setState({error: error}))
     }
 
     showSingleMovie = (id) => {
       const currentMovie = this.state.movies.find(movie => movie.id === id)
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Not a 200 status');
+        }
+        console.log('getting my data')
+        return response.json()
+    })   
       .then(data => this.setState({singleMovie: data.movie}))
-      .catch(error => console.log(error, 'An error has occurred'))
+      .catch(error => this.setState({error: error}))
      
     }
 
@@ -42,13 +55,13 @@ class App extends Component {
     }
 
     render() {
-      console.log(this.state.singleMovie)
       return (
         <div>
           <nav>
             <h1 className="nav-title">Sour Apples</h1>
           </nav>
           <main className="App">
+            {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
             {this.state.singleMovie
             ? <SingleMovie singleMovie={this.state.singleMovie} goHome={this.goHome} />
             : <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />}
