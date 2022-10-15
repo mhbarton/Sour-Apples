@@ -1,11 +1,9 @@
 import React from 'react'
-// import movieData from '../movieData.js'
-// import Card from '../Card/Card'
 import home from "../images/home.png"
 import './SingleMovie.css'
 
-const SingleMovie = ({ movies, goHome }) => {
-  const {title, backdrop_path, poster_path, release_date, average_rating} = movies
+const SingleMovie = ({ singleMovie, goHome }) => {
+  const {title, backdrop_path, poster_path, release_date, average_rating} = singleMovie
     return (
         <div>
           <img role="button" className="home-icon" src={home} onClick={() => goHome()} alt="Home icon to take user back to main view"/>
