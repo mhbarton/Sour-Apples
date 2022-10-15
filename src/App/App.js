@@ -1,15 +1,30 @@
 import React, { Component } from "react"
 import './App.css';
-import movieData from '../movieData.js'
-import Movies from '../Movies/Movies'
+import movieData from '../movieData.js';
+import home from "../images/home.png"
+import Movies from '../Movies/Movies';
+import SingleMovie from '../SingleMovie/SingleMovie';
 
 
 class App extends Component {
     constructor() {
       super()
       this.state = {
-        movieData
+        movies: movieData.movies
       }
+    }
+
+    showSingleMovie = (id) => {
+      const currentMovie = this.state.movies.find(movie => movie.id === id)
+      this.setState({
+        movies: currentMovie
+      })
+    }
+
+    goHome = () => {
+    this.setState({
+      movies: movieData.movies
+    })
     }
 
     render() {
@@ -19,12 +34,14 @@ class App extends Component {
             <h1 className="nav-title">Sour Apples</h1>
           </nav>
           <main className="App">
-            <Movies movies={this.state.movieData.movies}/>
+            {this.state.movies.length > 1
+            ? <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />
+            : <SingleMovie movies={this.state.movies} goHome={this.goHome} />}
           </main>
         </div>
       )
     }
 
-} 
+}
 
 export default App;

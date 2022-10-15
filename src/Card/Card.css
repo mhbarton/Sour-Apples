@@ -8,14 +8,14 @@
     box-shadow: 0 0 10px grey;
     position: relative;
     background-color: rgb(246, 249, 249);
-
+    overflow: auto;
 }
 .card:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-img {
+.main-view-poster {
     width: 200px;
     height: 300px;
     object-fit: cover;
