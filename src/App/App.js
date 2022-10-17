@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './App.css';
-// import movieData from '../movieData.js
 import apple from "../images/apple.png";
 import home from "../images/home.png";
 import movieapple from "../images/movie-apple1.svg";
@@ -37,11 +36,10 @@ class App extends Component {
     }
 
     showSingleMovie = (id) => {
-      const currentMovie = this.state.movies.find(movie => movie.id === id)
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
         if (!response.ok) {
-            throw new Error('Not a 200 status');
+            throw new Error('Not a 200 status', 'undefined'); 
         }
         console.log('getting my data')
         return response.json()
