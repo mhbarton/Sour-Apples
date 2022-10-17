@@ -15,6 +15,7 @@ describe('Sour Apples Home Page flows', () => {
     .get('h2').contains('Money Plane')
     .get('p.card-details').contains('Rating: 7 / 10')
     cy.get('.card:nth-child(1)').trigger('mouseover')
+    cy.get('.card:nth-child(1)').click()
   })
   
 })

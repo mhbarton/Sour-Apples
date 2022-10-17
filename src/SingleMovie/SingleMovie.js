@@ -17,7 +17,7 @@ const SingleMovie = ({ singleMovie }) => {
                 <p className='divider'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p className="details">{`Release date:  ${release_date}`}</p>
                 <p className='divider'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
-                <p className="details">{`Runtime: ${runtime}`}</p>
+                <p className="details">{`Runtime: ${runtime} minutes`}</p>
               </div>
               <p className="details">{`${overview}`}</p>
             </div>
