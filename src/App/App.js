@@ -39,7 +39,7 @@ class App extends Component {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
         if (!response.ok) {
-            throw new Error('Not a 200 status', 'undefined'); 
+            throw new Error('Not a 200 status', 'undefined');
         }
         console.log('getting my data')
         return response.json()
@@ -62,7 +62,7 @@ class App extends Component {
       return (
         <div>
           <nav>
-            <img className="movie-apple" src={movieapple} alt="apple with movie icon inside" />
+            <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
             {this.state.singleMovie && <img role="button" className="home-icon" src={home} onClick={() => this.goHome()} alt="Home icon to take user back to main view"/>}
           </nav>

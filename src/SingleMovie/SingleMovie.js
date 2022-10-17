@@ -7,7 +7,7 @@ const SingleMovie = ({ singleMovie }) => {
         <div>
           <img className="backdrop" src={backdrop_path} alt="movie background"/>
           <article className="article-details">
-            <img className="poster" src={poster_path} alt="movie poster with title and details for show times"/>
+            <img className="poster hidden" src={poster_path} alt="movie poster with title and details for show times"/>
             <div className="movie-details">
               <h1>{title}</h1>
               <h2 className="tagline">{`${tagline}`}</h2>
