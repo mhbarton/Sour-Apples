@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+main {
+  /* display: flex; */
+  position: absolute;
+}
+
 nav {
     background-color: #131010;
     display: flex;
