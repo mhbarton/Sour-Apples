@@ -2,12 +2,11 @@ import React from 'react'
 import Card from '../Card/Card'
 import './Movies.css'
 
-const Movies = ({ movies, showSingleMovie }) => {
+const Movies = ({ movies }) => {
 
     const movieData = movies.map(movie => {
         return (
             <Card
-                showSingleMovie={showSingleMovie}
                 poster_path={movie.poster_path}
                 title={movie.title}
                 release_date={movie.release_date}

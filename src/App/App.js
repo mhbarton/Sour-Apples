@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import apple from "../images/apple.png";
 import home from "../images/home.png";
@@ -13,7 +13,6 @@ class App extends Component {
       super()
       this.state = {
         movies: [],
-        singleMovie: [],
         error: '',
         loading: false
       }
@@ -36,20 +35,7 @@ class App extends Component {
       .catch(error => this.setState({error: error}))
     }
 
-    showSingleMovie = (id) => {
-      this.setState({movies: []})  // added after talking with Hunter
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Not a 200 status', 'undefined');
-        } 
-        console.log('getting my single data')
-        return response.json()
-    })
-      .then(data => this.setState({singleMovie: data.movie}))
-      .catch(error => this.setState({error: error}))
-
-    }
+  
 
     componentDidMount() {
       this.fetchData()
@@ -75,15 +61,14 @@ class App extends Component {
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
             {this.state.loading && <img src={apple} className="apple-loader" alt="apple loader" />}
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
-            
-            <Route path='/'> <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/>  </Route>  
-            <Route path=''> <SingleMovie singleMovie={this.state.singleMovie} /> </Route>
-          
+            <Switch>
+              <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/> } />  
+              <Route exact path='/:id' render={({ match }) =>  <SingleMovie singleMovie={this.state.singleMovie} id={match.params.id} /> }  />
+            </Switch>
           </main>
         </div>
       )
     }
-
 }
 
 export default App;
