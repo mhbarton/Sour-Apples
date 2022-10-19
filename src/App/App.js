@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from 'react-router-dom';
 import './App.css';
 import apple from "../images/apple.png";
 import home from "../images/home.png";
@@ -12,7 +13,7 @@ class App extends Component {
       super()
       this.state = {
         movies: [],
-        singleMovie: null,
+        singleMovie: [],
         error: '',
         loading: false
       }
@@ -36,25 +37,28 @@ class App extends Component {
     }
 
     showSingleMovie = (id) => {
+      this.setState({movies: []})  // added after talking with Hunter
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
         if (!response.ok) {
             throw new Error('Not a 200 status', 'undefined');
-        }
-        console.log('getting my data')
+        } 
+        console.log('getting my single data')
         return response.json()
     })
       .then(data => this.setState({singleMovie: data.movie}))
       .catch(error => this.setState({error: error}))
+
     }
 
     componentDidMount() {
       this.fetchData()
+    
     }
 
     goHome = () => {
     this.setState({
-      singleMovie: null
+      singleMovie: []
     })
     }
 
@@ -64,15 +68,17 @@ class App extends Component {
           <nav>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
-            {this.state.singleMovie && <img role="button" className="home-icon" src={home} onClick={() => this.goHome()} alt="Home icon to take user back to main view"/>}
+            {this.state.singleMovie && <img role="button" className="home-icon" src={home} 
+            onClick={() => this.goHome()} alt="Home icon to take user back to main view"/>}
           </nav>
           <main className="App">
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
             {this.state.loading && <img src={apple} className="apple-loader" alt="apple loader" />}
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
-            {this.state.singleMovie
-            ? <SingleMovie singleMovie={this.state.singleMovie} goHome={this.goHome} />
-            : <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} />}
+            
+            <Route path='/'> <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/>  </Route>  
+            <Route path=''> <SingleMovie singleMovie={this.state.singleMovie} /> </Route>
+          
           </main>
         </div>
       )

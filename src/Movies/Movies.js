@@ -7,14 +7,14 @@ const Movies = ({ movies, showSingleMovie }) => {
     const movieData = movies.map(movie => {
         return (
             <Card
+                showSingleMovie={showSingleMovie}
                 poster_path={movie.poster_path}
                 title={movie.title}
                 release_date={movie.release_date}
                 average_rating={movie.average_rating}
                 id={movie.id}
                 key={movie.id}
-                showSingleMovie={showSingleMovie}
-               
+                
             />
         )
     })
