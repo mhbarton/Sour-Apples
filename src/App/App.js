@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import apple from "../images/apple.png";
-import home from "../images/home.png";
 import movieapple from "../images/movie-apple1.svg";
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
@@ -42,20 +41,12 @@ class App extends Component {
     
     }
 
-    goHome = () => {
-    this.setState({
-      singleMovie: []
-    })
-    }
-
     render() {
       return (
         <div>
           <nav>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
-            {this.state.singleMovie && <img role="button" className="home-icon" src={home} 
-            onClick={() => this.goHome()} alt="Home icon to take user back to main view"/>}
           </nav>
           <main className="App">
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}

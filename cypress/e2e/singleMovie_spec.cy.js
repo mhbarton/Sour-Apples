@@ -1,10 +1,9 @@
 describe('Sour Apples Single Movie flow', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3000/694919')
   })
   it('Should be able to view the single movie page', () => {
-    cy.get('.card:nth-child(1)').click()
-    .get('nav').find('.nav-title').contains('Sour Apples')
+    cy.get('nav').find('.nav-title').contains('Sour Apples')
     .get('nav').find('.movie-apple')
     .get('nav').find('.home-icon')
     .get('.article-details').find('.poster')
