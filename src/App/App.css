@@ -2,12 +2,22 @@
   text-align: center;
 }
 
+main {
+  position: absolute;
+  margin-top: 200px;
+  z-index: 1;
+}
+
 nav {
     background-color: #131010;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+    position: fixed;
+    width: 100vw;
+    height: 200px;
 }
 
 .nav-title {

@@ -42,3 +42,11 @@ h2 {
     bottom: 0;
     display: flex;
 }
+
+a:link {
+   text-decoration: none;
+   color: black;
+}
+a:visited {
+    color: black;
+}
