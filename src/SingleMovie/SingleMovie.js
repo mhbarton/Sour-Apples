@@ -27,12 +27,6 @@ class SingleMovie extends Component {
     this.showSingleMovie(id)
   }
 
-  // goHome = () => {
-  //   this.setState({
-  //     singleMovie: []
-  //   })
-  //   }
-
   render() {
     const singleMovie = this.state.singleMovie
     return (
@@ -46,9 +40,9 @@ class SingleMovie extends Component {
               <p className="details">{`${singleMovie.genres}`}</p>
               <div className="minor-details">
                 <p className="details">{`🍏 Sour Apples Rating:  ${singleMovie.average_rating} / 10 `}</p>
-                <p className='divider'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
+                <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p className="details">{`Release date:  ${singleMovie.release_date}`}</p>
-                <p className='divider'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
+                <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p className="details">{`Runtime: ${singleMovie.runtime} minutes`}</p>
               </div>
               <p className="details">{`${singleMovie.overview}`} </p>
