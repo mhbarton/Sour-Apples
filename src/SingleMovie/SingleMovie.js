@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import home from "../images/home.png";
 import './SingleMovie.css'
 
 class SingleMovie extends Component {
@@ -39,8 +37,6 @@ class SingleMovie extends Component {
     const singleMovie = this.state.singleMovie
     return (
       this.state.singleMovie ? <div className="single-movie-container">
-        <Link to='/'><img role="button" className="home-icon" src={home} 
-            alt="Home icon to take user back to main view"/></Link>
           <img className="backdrop" src={singleMovie.backdrop_path} alt="movie background"/>
           <article className="article-details">
             <img className="poster hidden" src={singleMovie.poster_path} alt="movie poster with title and details for show times"/>

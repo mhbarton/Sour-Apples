@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import home from "../images/home.png";
 import './App.css';
 import apple from "../images/apple.png";
 import movieapple from "../images/movie-apple1.svg";
@@ -13,7 +15,8 @@ class App extends Component {
       this.state = {
         movies: [],
         error: '',
-        loading: false
+        loading: false,
+        onHomePage: false
       }
     }
 
@@ -34,7 +37,6 @@ class App extends Component {
       .catch(error => this.setState({error: error}))
     }
 
-  
 
     componentDidMount() {
       this.fetchData()
@@ -47,6 +49,8 @@ class App extends Component {
           <nav>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
+            <NavLink to='/'><img role="button" className="home-icon" src={home} 
+            alt="Home icon to take user back to main view"/></NavLink>
           </nav>
           <main className="App">
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
@@ -54,7 +58,8 @@ class App extends Component {
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
             <Switch>
               <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/> } />  
-              <Route exact path='/:id' render={({ match }) =>  <SingleMovie singleMovie={this.state.singleMovie} id={match.params.id} /> }  />
+              <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id}/>
+              }  />
             </Switch>
           </main>
         </div>
