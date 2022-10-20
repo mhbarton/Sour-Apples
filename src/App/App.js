@@ -15,8 +15,7 @@ class App extends Component {
       this.state = {
         movies: [],
         error: '',
-        loading: false,
-        onHomePage: false
+        loading: false
       }
     }
 
@@ -36,7 +35,6 @@ class App extends Component {
         }))
       .catch(error => this.setState({error: error}))
     }
-
 
     componentDidMount() {
       this.fetchData()
