@@ -7,6 +7,7 @@ import apple from "../images/apple.png";
 import movieapple from "../images/movie-apple1.svg";
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
+import Search from '../Search/Search';
 
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
       this.state = {
         movies: [],
         error: '',
-        loading: false
+        loading: false,
+        inputValue: '',
       }
     }
 
@@ -41,10 +43,24 @@ class App extends Component {
 
     }
 
+    // handleChange = (event) => {
+    //   console.log('test input', event.target.value)
+    //   const allMovies = { ...this.state}
+    //   const currentState = this.state.inputValue
+    //   currentState[event.currentTarget.title] = event.currentTarget.value
+    //   this.setState({ currentState })
+    //   const filteredMovies =
+    //   allMovies.movies.filter(movie => {
+    //     return movie.title.toLowerCase().includes(allMovies.inputValue.toLowerCase())
+    //   })
+    // }
+
     render() {
+
       return (
         <div>
           <nav>
+            <Search movies={this.state.movies}/>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
             <NavLink to='/'><img role="button" className="home-icon" src={home}
