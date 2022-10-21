@@ -14,7 +14,7 @@ class SingleMovie extends Component {
     .then(response => {
       if (!response.ok) {
           throw new Error('Not a 200 status', 'undefined');
-      } 
+      }
       console.log('getting my single data')
       return response.json()
   })
@@ -37,20 +37,21 @@ class SingleMovie extends Component {
             <div className="movie-details">
               <h1>{singleMovie.title}</h1>
               <h2 className="tagline">{`${singleMovie.tagline}`}</h2>
-              <p className="details">{`${singleMovie.genres}`}</p>
+              <p className="details">{`${singleMovie.genres} `}</p>
               <div className="minor-details">
-                <p className="details">{`🍏 Sour Apples Rating:  ${singleMovie.average_rating} / 10 `}</p>
+                {this.state.singleMovie && <p className="details">{`🍏 Sour Apples Rating:  ${parseInt(singleMovie.average_rating)} / 10 `}</p>}
                 <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p className="details">{`Release date:  ${singleMovie.release_date}`}</p>
                 <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p className="details">{`Runtime: ${singleMovie.runtime} minutes`}</p>
               </div>
               <p className="details">{`${singleMovie.overview}`} </p>
-            </div> 
+            </div>
           </article>
         </div> : <h3>Oops, that was a bad apple, please try again!</h3> )
 }
 }
+
 
 
 export default SingleMovie;
