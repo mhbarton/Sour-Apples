@@ -57,6 +57,9 @@ class App extends Component {
             <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/> } />
             <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id}/> }  />
           </main>
+          <footer>
+            <h4> 🍏 Created by Beth and Marianne </h4>
+          </footer>
         </div>
       )
     }

@@ -90,3 +90,20 @@ h3 {
   filter: invert(62%) sepia(97%) saturate(601%) hue-rotate(67deg) brightness(91%) contrast(85%);
   display: flex;
 }
+
+footer {
+  z-index: 3;
+  color: limegreen;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  width: 100vw;
+  height: 40px;
+}
+
+h4 {
+  text-align: center;
+  margin-top: 0;
+  padding-top: 6px;
+  font-size: 14px;
+}
