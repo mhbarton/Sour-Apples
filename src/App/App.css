@@ -101,9 +101,11 @@ footer {
   height: 40px;
 }
 
-h4 {
+.footer-text {
   text-align: center;
   margin-top: 0;
   padding-top: 6px;
   font-size: 14px;
+  color: limegreen;
+  font-family: 'Merriweather', serif;
 }

@@ -35,7 +35,7 @@ class Search extends Component {
         }}>
           <input
           type="text"
-          placeholder="search here"
+          placeholder="Search Movie Title"
           name='search'
           onChange={this.handleChange}
           />
