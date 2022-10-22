@@ -41,6 +41,10 @@ nav {
   margin-top: 75px;
 }
 
+.apple-loader-text {
+  color: limegreen;
+}
+
 h3 {
   font-family: 'Limelight', cursive;
   color: red;
@@ -79,7 +83,7 @@ h3 {
 
 .apple-loader-text {
   font-family: 'Limelight', cursive;
-  color: black;
+  color: limegreen;
   font-size: 28px;
   margin-top: 20px;
 }

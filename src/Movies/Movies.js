@@ -26,7 +26,7 @@ const movieData = displayCards.map(movie => {
 
     return (
         <div className='movies-container'>
-            {movieData.length ? movieData : <h5>Sorry no movies found</h5>}
+            {movieData}
         </div>
     )
 }
