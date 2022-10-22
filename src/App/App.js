@@ -47,6 +47,11 @@ class App extends Component {
       this.setState({ searchMovie: input })
     }
 
+    clearInputs = () => {
+      this.setState({ searchMovie: '' })
+      this.fetchData()
+    }
+
     render() {
       return (
         <div>
@@ -55,7 +60,7 @@ class App extends Component {
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
             <NavLink to='/'><img role="button" className="home-icon" src={home}
-            alt="Home icon to take user back to main view"/></NavLink>
+            alt="Home icon to take user back to main view" onClick={() => this.clearInputs()}/></NavLink>
           </nav>
           <main className="App">
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
