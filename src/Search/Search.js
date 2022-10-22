@@ -1,35 +1,46 @@
-import React, { useState } from 'react';
-import Card from '../Card/Card';
+import React, { Component } from 'react';
 import './Search.css';
 
-const Search = ({ movies }) => {
-  const [searchInput, setSearchInput] = useState('');
-  const allMovies= { movies }
-  console.log('testing', allMovies)
+class Search extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      searchInput: null,
+    }
+  }
 
-  const handleChange = (e) => {
-  // e.preventDefault();
-  const {title} = e.target
-  setSearchInput(e.target.value);
+  handleChange = (event) => {
+    this.setState({ searchInput: event.target.value})
+  };
+
+//   searchMovies(event) {
+//     const allMovies = movies
+//     console.log('jello', movies)
+//     const filteredMovies = movies.filter(movie => {
+//       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
+//   })
+// }
+
+  render() {
+    return (
+      <div>
+        <form className='form' onSubmit={(event) => {
+          event.preventDefault()
+          this.props.searchForMovie(this.state.searchInput)
+        }}>
+          <input
+          type="text"
+          placeholder="search here"
+          name='search'
+          onChange={this.handleChange}
+          />
+          <button>Search</button>
+        </form>
+      </div>
+    )
+
+  }
+
 };
-
-const filteredMovies = !searchInput
-    ? allMovies
-    : allMovies.movies.filter((movie) =>
-        movie.title.includes(searchInput)
-      );
-return (
-    <div>
-      <label htmlFor="Search"> Search by Title </label>
-      <input
-      type="text"
-      placeholder="Search here"
-      onChange={handleChange}
-      value={searchInput} />
-    </div>
-  )
-}
-
-
 
 export default Search;

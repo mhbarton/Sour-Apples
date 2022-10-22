@@ -17,7 +17,7 @@ class App extends Component {
         movies: [],
         error: '',
         loading: false,
-        inputValue: '',
+        searchMovie: ''
       }
     }
 
@@ -43,24 +43,15 @@ class App extends Component {
 
     }
 
-    // handleChange = (event) => {
-    //   console.log('test input', event.target.value)
-    //   const allMovies = { ...this.state}
-    //   const currentState = this.state.inputValue
-    //   currentState[event.currentTarget.title] = event.currentTarget.value
-    //   this.setState({ currentState })
-    //   const filteredMovies =
-    //   allMovies.movies.filter(movie => {
-    //     return movie.title.toLowerCase().includes(allMovies.inputValue.toLowerCase())
-    //   })
-    // }
+    searchForMovie = (input) => {
+      this.setState({ searchMovie: input })
+    }
 
     render() {
-
       return (
         <div>
           <nav>
-            <Search movies={this.state.movies}/>
+            <Search searchForMovie={this.searchForMovie}/>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
             <NavLink to='/'><img role="button" className="home-icon" src={home}
@@ -70,7 +61,7 @@ class App extends Component {
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
             {this.state.loading && <img src={apple} className="apple-loader" alt="apple loader" />}
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
-            <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/> } />
+            <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} searchMovie={this.state.searchMovie}/> } />
             <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id}/> }  />
           </main>
           <footer>
