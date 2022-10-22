@@ -10,8 +10,13 @@ class Search extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ searchInput: event.target.value})
+    this.setState({ searchInput: event.target.value })
   };
+
+  clearSearchInput = () => {
+    this.setState({ searchInput: '' })
+    this.form.reset()
+  }
 
 //   searchMovies(event) {
 //     const allMovies = movies
@@ -24,17 +29,18 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form className='form' onSubmit={(event) => {
+        <form ref={form => this.form = form} className='form' onSubmit={(event) => {
           event.preventDefault()
           this.props.searchForMovie(this.state.searchInput)
         }}>
           <input
           type="text"
-          placeholder="search here"
+          placeholder="Search Movie Title"
           name='search'
           onChange={this.handleChange}
           />
           <button>Search</button>
+          <button onClick={() => this.clearSearchInput()}>Clear</button>
         </form>
       </div>
     )

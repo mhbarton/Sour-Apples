@@ -1,8 +1,17 @@
 .movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #181717;
+  height: 100%;
+}
 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        background-color: #181717;
-    
+h5 {
+  color: limegreen;
+  font-size: 24px;
+  font-family: 'Limelight', cursive;
+}
+
+body {
+  background-color: #181717;
 }
