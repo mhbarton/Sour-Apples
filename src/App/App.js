@@ -66,6 +66,7 @@ class App extends Component {
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
             {this.state.loading && <img src={apple} className="apple-loader" alt="apple loader" />}
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
+           
             <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} searchMovie={this.state.searchMovie}/> } />
             <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id}/> }  />
           </main>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import './SingleMovie.css'
+import apple from "../images/apple.png";
 
 class SingleMovie extends Component {
   constructor() {
     super()
     this.state = {
       singleMovie: {},
+      error: true
     }
   }
 
@@ -13,7 +15,7 @@ class SingleMovie extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(response => {
       if (!response.ok) {
-          throw new Error('Not a 200 status', 'undefined');
+          throw new Error('Not a 200 status');
       }
       console.log('getting my single data')
       return response.json()
@@ -30,7 +32,8 @@ class SingleMovie extends Component {
   render() {
     const singleMovie = this.state.singleMovie
     return (
-      this.state.singleMovie ? <div className="single-movie-container">
+      this.state.singleMovie ? <div>
+        <div className="single-movie-container">
           <img className="backdrop" src={singleMovie.backdrop_path} alt="movie background"/>
           <article className="article-details">
             <img className="poster hidden" src={singleMovie.poster_path} alt="movie poster with title and details for show times"/>
@@ -48,7 +51,9 @@ class SingleMovie extends Component {
               <p className="details">{`${singleMovie.overview}`} </p>
             </div>
           </article>
-        </div> : <h3>Oops, that was a bad apple, please try again!</h3> )
+          </div>
+        </div> : <div>{this.state.error && <h3>Oops, that was a bad apple, please try again!</h3>}</div>
+         )
 }
 }
 
