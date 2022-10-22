@@ -7,6 +7,7 @@ import apple from "../images/apple.png";
 import movieapple from "../images/movie-apple1.svg";
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
+import Search from '../Search/Search';
 
 
 class App extends Component {
@@ -15,7 +16,8 @@ class App extends Component {
       this.state = {
         movies: [],
         error: '',
-        loading: false
+        loading: false,
+        searchMovie: ''
       }
     }
 
@@ -41,10 +43,15 @@ class App extends Component {
 
     }
 
+    searchForMovie = (input) => {
+      this.setState({ searchMovie: input })
+    }
+
     render() {
       return (
         <div>
           <nav>
+            <Search searchForMovie={this.searchForMovie}/>
             <img className="movie-apple hidden" src={movieapple} alt="apple with movie icon inside" />
             <h1 className="nav-title">Sour Apples</h1>
             <NavLink to='/'><img role="button" className="home-icon" src={home}
@@ -54,7 +61,7 @@ class App extends Component {
             {this.state.loading && <p className="apple-loader-text"> Loading your sour apples...</p>}
             {this.state.loading && <img src={apple} className="apple-loader" alt="apple loader" />}
             {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3> }
-            <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie}/> } />
+            <Route exact path='/' render={() =>  <Movies movies={this.state.movies} showSingleMovie={this.showSingleMovie} searchMovie={this.state.searchMovie}/> } />
             <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id}/> }  />
           </main>
           <footer>
