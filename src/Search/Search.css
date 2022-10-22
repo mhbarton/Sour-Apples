@@ -3,7 +3,8 @@ form {
   background-color: #181717;
   padding-bottom: 10px;
   padding-top: 10px;
-  border: 1px solid limegreen;
+  border-top: 1px solid limegreen;
+  border-bottom: 1px solid limegreen;
 }
 
  button {
