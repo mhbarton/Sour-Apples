@@ -22,6 +22,10 @@ p {
   margin-right: 21px;
 }
 
+.home-icon:hover {
+  transform: scale(1.05);
+}
+
 .single-movie-container {
   background-color: white;
 }
@@ -85,15 +89,7 @@ article {
     font-size: 20px;
 }
 @media screen and (min-width: 300px) and (max-width: 760px) {
-  .article-details {
-    /* display: flex; */
-    /* position: absolute;
-    left: 0;
-    bottom: 0;  */
-    /* flex-direction: column;
-    align-items: center; */
-    /* margin-top: 200px; */
-  }
+  
   .hidden {
     display: none;
   }

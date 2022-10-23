@@ -18,14 +18,6 @@ class Search extends Component {
     this.form.reset()
   }
 
-//   searchMovies(event) {
-//     const allMovies = movies
-//     console.log('jello', movies)
-//     const filteredMovies = movies.filter(movie => {
-//       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
-//   })
-// }
-
   render() {
     return (
       <div>
@@ -39,8 +31,8 @@ class Search extends Component {
           name='search'
           onChange={this.handleChange}
           />
-          <button>Search</button>
-          <button onClick={() => this.clearSearchInput()}>Clear</button>
+          <button className="search" disabled={!this.state.searchInput}>Search</button>
+          <button className="clear" onClick={() => this.clearSearchInput()}>Clear</button>
         </form>
       </div>
     )

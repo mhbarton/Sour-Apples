@@ -6,6 +6,7 @@ main {
   position: absolute;
   margin-top: 200px;
   z-index: 1;
+  width: 100%;
 }
 
 nav {
@@ -43,6 +44,7 @@ nav {
 
 .apple-loader-text {
   color: limegreen;
+  align-content: center;
 }
 
 h3 {
@@ -108,7 +110,7 @@ footer {
 .footer-text {
   text-align: center;
   margin-top: 0;
-  padding-top: 6px;
+  padding-top: 10px;
   font-size: 14px;
   color: limegreen;
   font-family: 'Merriweather', serif;

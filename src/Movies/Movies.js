@@ -5,7 +5,7 @@ import './Movies.css'
 const Movies = ({ movies, searchMovie}) => {
   let displayCards;
   if (searchMovie !== '') {
-    displayCards = movies.filter((movie) => movie.title.toLowerCase().includes(searchMovie.toLowerCase())
+    displayCards = movies.filter((movie) => movie.title.toLowerCase().startsWith(searchMovie.toLowerCase())
   )
 } else {
   displayCards = movies
@@ -26,7 +26,7 @@ const movieData = displayCards.map(movie => {
 
     return (
         <div className='movies-container'>
-            {movieData}
+            {movieData.length ? movieData : <h3>Oops!  No apples found!</h3>}
         </div>
     )
 }
