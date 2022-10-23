@@ -31,7 +31,7 @@ class Search extends Component {
           name='search'
           onChange={this.handleChange}
           />
-          <button>Search</button>
+          <button disabled={!this.state.searchInput}>Search</button>
           <button onClick={() => this.clearSearchInput()}>Clear</button>
         </form>
       </div>

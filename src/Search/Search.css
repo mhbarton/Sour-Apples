@@ -29,3 +29,7 @@ button:hover {
   cursor: pointer;
 }
 
+button:disabled {
+ display: none;
+}
+
