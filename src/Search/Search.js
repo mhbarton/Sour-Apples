@@ -18,14 +18,6 @@ class Search extends Component {
     this.form.reset()
   }
 
-//   searchMovies(event) {
-//     const allMovies = movies
-//     console.log('jello', movies)
-//     const filteredMovies = movies.filter(movie => {
-//       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
-//   })
-// }
-
   render() {
     return (
       <div>

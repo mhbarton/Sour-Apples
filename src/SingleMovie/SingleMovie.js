@@ -6,8 +6,8 @@ class SingleMovie extends Component {
   constructor() {
     super()
     this.state = {
-      singleMovie: {},
-      error: true
+      singleMovie: null,
+      error: ''
     }
   }
 
@@ -27,10 +27,21 @@ class SingleMovie extends Component {
   componentDidMount() {
     const id = this.props.id
     this.showSingleMovie(id)
+ 
   }
+
 
   render() {
     const singleMovie = this.state.singleMovie
+    const divideMovieGenres = (singleMovie) => {
+      if (singleMovie.genres.length > 0) {
+        return singleMovie.genres
+        .slice(0, singleMovie.genres.length)
+        .join(", ")
+      } else {
+        return "Unknown Genre"
+      }
+    }
     return (
       this.state.singleMovie ? <div>
         <div className="single-movie-container">
@@ -40,7 +51,7 @@ class SingleMovie extends Component {
             <div className="movie-details">
               <h1>{singleMovie.title}</h1>
               <h2 className="tagline">{`${singleMovie.tagline}`}</h2>
-              <p className="details">{`${singleMovie.genres} `}</p>
+              <p className="details">{`${divideMovieGenres(singleMovie)}`}</p>
               <div className="minor-details">
                 {this.state.singleMovie && <p className="details">{`🍏 Sour Apples Rating:  ${parseInt(singleMovie.average_rating)} / 10 `}</p>}
                 <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
@@ -52,7 +63,9 @@ class SingleMovie extends Component {
             </div>
           </article>
           </div>
-        </div> : <div>{this.state.error && <h3>Oops, that was a bad apple, please try again!</h3>}</div>
+        </div> : <div>
+            {this.state.error && <h3>Oops, that was a bad apple, please try again!</h3>}
+        </div>
          )
 }
 }
