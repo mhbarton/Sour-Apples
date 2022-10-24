@@ -3,13 +3,15 @@ import Card from '../Card/Card'
 import './Movies.css'
 
 const Movies = ({ movies, searchMovie}) => {
-  let displayCards;
-  if (searchMovie !== '') {
-    displayCards = movies.filter((movie) => movie.title.toLowerCase().startsWith(searchMovie.toLowerCase())
-  )
-} else {
-  displayCards = movies
-}
+let displayCards;
+    if (searchMovie !== '') {
+        displayCards = movies.filter((movie) => movie.title.toLowerCase().startsWith(searchMovie.toLowerCase())
+    )
+    } else {
+        displayCards = movies
+    }
+
+  
 const movieData = displayCards.map(movie => {
 
         return (

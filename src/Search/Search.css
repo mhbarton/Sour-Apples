@@ -30,7 +30,8 @@ button:hover {
   cursor: pointer;
 }
 
-.search:disabled {
+.search:disabled, 
+.clear:disabled {
  display: none;
 }
 

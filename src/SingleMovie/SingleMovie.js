@@ -18,9 +18,11 @@ class SingleMovie extends Component {
      .catch(error => this.setState({error: error}))
   }
 
+ 
 
   render() {
     const singleMovie = this.state.singleMovie
+  
     const divideMovieGenres = (singleMovie) => {
       if (singleMovie.genres.length > 0) {
         return singleMovie.genres
@@ -32,7 +34,7 @@ class SingleMovie extends Component {
     }
     return (
       this.state.singleMovie ? <div>
-        <div className="single-movie-container">
+        <div className="single-movie-container" >
           <img className="backdrop" src={singleMovie.backdrop_path} alt="movie background"/>
           <article className="article-details">
             <img className="poster hidden" src={singleMovie.poster_path} alt="movie poster with title and details for show times"/>
