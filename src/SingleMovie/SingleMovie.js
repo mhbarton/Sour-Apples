@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './SingleMovie.css'
-import apple from "../images/apple.png";
+import { showSingleMovie } from '../APIcalls';
 
 class SingleMovie extends Component {
   constructor() {
@@ -11,28 +11,18 @@ class SingleMovie extends Component {
     }
   }
 
-  showSingleMovie = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(response => {
-      if (!response.ok) {
-          throw new Error('Not a 200 status');
-      }
-      console.log('getting my single data')
-      return response.json()
-  })
-    .then(data => this.setState({singleMovie: data.movie}))
-    .catch(error => this.setState({error: error}))
-  }
-
   componentDidMount() {
     const id = this.props.id
-    this.showSingleMovie(id)
- 
+    showSingleMovie(id)
+     .then(data => this.setState({singleMovie: data.movie}))
+     .catch(error => this.setState({error: error}))
   }
 
+ 
 
   render() {
     const singleMovie = this.state.singleMovie
+  
     const divideMovieGenres = (singleMovie) => {
       if (singleMovie.genres.length > 0) {
         return singleMovie.genres
@@ -44,7 +34,7 @@ class SingleMovie extends Component {
     }
     return (
       this.state.singleMovie ? <div>
-        <div className="single-movie-container">
+        <div className="single-movie-container" >
           <img className="backdrop" src={singleMovie.backdrop_path} alt="movie background"/>
           <article className="article-details">
             <img className="poster hidden" src={singleMovie.poster_path} alt="movie poster with title and details for show times"/>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { fetchData } from "../APIcalls";
 import home from "../images/home.png";
 import './App.css';
 import apple from "../images/apple.png";
@@ -21,26 +22,13 @@ class App extends Component {
       }
     }
 
-    fetchData = () => {
-      this.setState({loading: true})
-      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Not a 200 status');
-        }
-        console.log('getting my data')
-        return response.json()
-      })
-      .then(data => this.setState({
-          loading: false,
-          movies: data.movies
-        }))
-      .catch(error => this.setState({error: error}))
-    }
-
     componentDidMount() {
-      this.fetchData()
-
+      this.setState({loading: true})
+      fetchData().then(data => this.setState({
+        loading: false,
+        movies: data.movies
+      }))
+      .catch(error => this.setState({error: error}))
     }
 
     searchForMovie = (input) => {
