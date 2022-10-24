@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { fetchData, showSingleMovie } from "../APIcalls";
+import { fetchData } from "../APIcalls";
 import home from "../images/home.png";
 import './App.css';
 import apple from "../images/apple.png";
