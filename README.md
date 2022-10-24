@@ -11,7 +11,7 @@ Welcome to Sour Apples! Here we have provided an app that allows you to browse a
 
 ## Deployed Link
 Check out our project here!
-[Sour Apples](https://sour-apples.vercel.app/)
+[Sour Apples](https://sour-apples-gjpsd1p70-mhbarton.vercel.app)
 
 Deployed using ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
